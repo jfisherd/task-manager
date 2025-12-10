@@ -3,40 +3,55 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import { TaskFilter } from './components/TaskFilter/TaskFilter'
-import { TaskStatus } from './types'
+import { TaskList } from './components/TaskList/TaskList'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
-  const myTasks = [
+  const [myTasks, setMyTasks] = useState([
     {
-      id: 'anId',
+      id: '1',
       title: 'myTitle',
       description: 'description string',
-      status: 'pending',
+      status: 'completed',
       priority: 'low',
-      dueDate: 'Due Thursday',
+      dueDate: Date.now().toString,
+    },
+    {
+      id: '2',
+      title: 'Rant About Emojis',
+      description: '🤮🤮🤮🤮🤮🤮🤮',
+      status: 'pending',
+      priority: 'medium',
+      dueDate: '01/01/2070',
+    },
+    {
+      id: '3',
+      title: 'Learn to Stop Worrying and Love the DOM',
+      description: 'It is not only possible, it is essential.',
+      status: 'in-progress',
+      priority: 'high',
+      dueDate: 'Midnight',
     }
-  ]
-
+  ])
 
   function onStatusChange(taskId: string, newStatus: TaskStatus) {
-    
+    // update the status
+    return
   }
 
   function onDelete(taskId: string) {
+    // delete the task
     return
   }
 
   return (
     <>
       <TaskFilter />
-      {/* <TaskItem /> */}
-      <TaskList
-        tasks={ }
-        onStatusChange={ }
-        onDelete={ }
-      />
+      <TaskList tasks={ myTasks } onStatusChange={onStatusChange} onDelete={onDelete}>
+        {/* <TaskItem /> */}
+        {/* <TaskItem /> */}
+        {/* <TaskItem /> */}
+      </TaskList>
     </>
   )
 }

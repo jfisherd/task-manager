@@ -1,3 +1,51 @@
+
+
+# Lab 7.3, Lists, Keys, and Conditionals
+
+## Description
+In this lab, 
+
+
+
+## Running the program
+To view use this lab, 
+
+## Reflection Questions
+> How did you ensure unique keys for your list items?
+
+C
+<br>
+
+
+> What considerations did you make when implementing the filtering functionality?
+
+T
+<br>
+
+> How did you handle state updates for task status changes?
+
+I
+<br>
+
+> What challenges did you face when implementing conditional rendering?
+
+R
+<br>
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
