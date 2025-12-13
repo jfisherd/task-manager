@@ -3,6 +3,10 @@ import type { TaskItemProps } from "../../types"
 
 export const TaskItem = (props: TaskItemProps) => {
 
+    const deleteItem = (event: Event) => {
+        event.target = <></>
+    }
+
     return (
         <>
             <li>
@@ -12,7 +16,7 @@ export const TaskItem = (props: TaskItemProps) => {
                 <div>status: {props.task.status}</div>
                 <div>priority: {props.task.priority}</div>
                 <div>due date: {props.task.dueDate}</div>
-                <button>Delete</button>
+                <button onClick={deleteItem}>Delete</button>
             </li>
         </>
     )

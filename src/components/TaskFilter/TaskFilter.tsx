@@ -3,9 +3,32 @@ import type { TaskFilterProps } from "../../types"
 
 export const TaskFilter = (props: TaskFilterProps) => {
 
-    
 
-    // NOT NEEDED FOR SCRIPT, KEEP FOR DOCUMENTATION
+    const [selectedStatus, setSelectedStatus] = useState('any')
+    const [selectedPriority, setSelectedPriority] = useState('any')
+
+    const [selectedFilters, setSelectedFilters] = useState({
+        status: 'any',
+        priority: 'any'
+    })
+
+
+    const filteredTasks = myTasks.filter(task => {
+        if (selectedStatus === 'any' && selectedPriority === 'any') {
+            return true
+        } else if (selectedStatus === 'any') {
+            return task.priority === selectedPriority
+        } else if (selectedPriority === 'any') {
+            return task.status === selectedStatus
+        } else {
+            return task.status === selectedStatus && task.priority === selectedPriority
+        }
+    })
+
+    const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedStatus(event.target.value)
+    }
+
     const handlePriorityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedPriority(event.target.value)
     }

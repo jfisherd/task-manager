@@ -5,7 +5,7 @@ import { TaskList } from './components/TaskList/TaskList'
 import './types/index.ts'
 
 function App() {
-  
+
   // WRITE COMPONENT LOGIC USING PROPS
 
   // logic and state variables reluctantly moved to App.tsx for centralization
@@ -36,29 +36,11 @@ function App() {
     }
   ])
 
-  // const [selectedStatus, setSelectedStatus] = useState('any')
-  // const [selectedPriority, setSelectedPriority] = useState('any')
 
-  const [selectedFilters, setSelectedFilters] = useState({
-    status: 'any',
-    priority: 'any'
-  })
 
-  const filteredTasks = myTasks.filter(task => {
-    if (selectedStatus === 'any' && selectedPriority === 'any') {
-      return true
-    } else if (selectedStatus === 'any') {
-      return task.priority === selectedPriority
-    } else if (selectedPriority === 'any') {
-      return task.status === selectedStatus
-    } else {
-      return task.status === selectedStatus && task.priority === selectedPriority
-    }
-  })
 
-  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedStatus(event.target.value)
-  }
+
+
   return (
     <>
       <TaskFilter />
