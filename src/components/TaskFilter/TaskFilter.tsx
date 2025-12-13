@@ -1,52 +1,28 @@
 import { useState } from "react"
-import type { TaskFilterProps } from "../../types"
+import type { Task, Filters, TaskFilterProps } from "../../types"
 
 export const TaskFilter = (props: TaskFilterProps) => {
 
-    const [myTasks, setMyTasks] = useState([
-        {
-            id: '1',
-            title: 'myTitle',
-            description: 'description string',
-            status: 'completed',
-            priority: 'low',
-            dueDate: 'Date.now().toString',
-        },
-        {
-            id: '2',
-            title: 'Rant About Emojis',
-            description: '🤮🤮🤮🤮🤮🤮🤮',
-            status: 'pending',
-            priority: 'medium',
-            dueDate: '01/01/2070',
-        },
-        {
-            id: '3',
-            title: 'Learn to Stop Worrying and Love the DOM',
-            description: 'It is not only possible, it is essential.',
-            status: 'in-progress',
-            priority: 'high',
-            dueDate: 'Midnight',
-        }
-    ])
+    const onFilterChange = () => {
 
-    const [selectedStatus, setSelectedStatus] = useState('any')
-    const [selectedPriority, setSelectedPriority] = useState('any')
+    }
 
-    const [selectedFilters, setSelectedFilters] = useState({
+    const [myTasks, setMyTasks] = useState<Task[] | null>(null)
+
+    const [selectedFilters, setSelectedFilters] = useState<Filters | null>({
         status: 'any',
         priority: 'any'
     })
 
     const filteredTasks = myTasks.filter(task => {
-        if (selectedStatus === 'any' && selectedPriority === 'any') {
+        if (selectedFilters.status === 'any' && selectedFilters.priority === 'any') {
             return true
-        } else if (selectedStatus === 'any') {
-            return task.priority === selectedPriority
-        } else if (selectedPriority === 'any') {
-            return task.status === selectedStatus
+        } else if (selectedFilters.status === 'any') {
+            return task.priority === selectedFilters.priority
+        } else if (selectedFilters.priority === 'any') {
+            return task.status === selectedFilters.status
         } else {
-            return task.status === selectedStatus && task.priority === selectedPriority
+            return task.status === selectedFilters.status && task.priority === selectedFilters.priority
         }
     })
 
