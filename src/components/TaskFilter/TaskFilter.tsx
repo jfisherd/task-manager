@@ -1,49 +1,11 @@
 import { useState } from "react"
+import type { TaskFilterProps } from "../../types"
 
-export const TaskFilter = () => {
+export const TaskFilter = (props: TaskFilterProps) => {
 
-    const [myTasks, setMyTasks] = useState([
-        {
-            id: '1',
-            title: 'myTitle',
-            description: 'description string',
-            status: 'completed',
-            priority: 'low',
-            dueDate: Date.now().toString,
-        },
-        {
-            id: '2',
-            title: 'Rant About Emojis',
-            description: '🤮🤮🤮🤮🤮🤮🤮',
-            status: 'pending',
-            priority: 'medium',
-            dueDate: '01/01/2070',
-        },
-        {
-            id: '3',
-            title: 'Learn to Stop Worrying and Love the DOM',
-            description: 'It is not only possible, it is essential.',
-            status: 'in-progress',
-            priority: 'high',
-            dueDate: 'Midnight',
-        }
-    ])
+    
 
-    const [selectedStatus, setSelectedStatus] = useState('any')
-    const [selectedPriority, setSelectedPriority] = useState('any')
-
-    const statusFilteredTasks = myTasks.filter(task => {
-        if (selectedStatus === 'any') {
-            return true
-        }
-
-        return task.status === selectedStatus
-    })
-
-    const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedStatus(event.target.value)
-    }
-
+    // NOT NEEDED FOR SCRIPT, KEEP FOR DOCUMENTATION
     const handlePriorityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedPriority(event.target.value)
     }

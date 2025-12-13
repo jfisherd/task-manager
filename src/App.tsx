@@ -1,19 +1,73 @@
-
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import './App.css'
 import { TaskFilter } from './components/TaskFilter/TaskFilter'
 import { TaskList } from './components/TaskList/TaskList'
+import './types/index.ts'
 
 function App() {
+  
+  // WRITE COMPONENT LOGIC USING PROPS
 
+  // logic and state variables reluctantly moved to App.tsx for centralization
+  const [myTasks, setMyTasks] = useState([
+    {
+      id: '1',
+      title: 'myTitle',
+      description: 'description string',
+      status: 'completed',
+      priority: 'low',
+      dueDate: 'Date.now().toString',
+    },
+    {
+      id: '2',
+      title: 'Rant About Emojis',
+      description: '🤮🤮🤮🤮🤮🤮🤮',
+      status: 'pending',
+      priority: 'medium',
+      dueDate: '01/01/2070',
+    },
+    {
+      id: '3',
+      title: 'Learn to Stop Worrying and Love the DOM',
+      description: 'It is not only possible, it is essential.',
+      status: 'in-progress',
+      priority: 'high',
+      dueDate: 'Midnight',
+    }
+  ])
 
+  // const [selectedStatus, setSelectedStatus] = useState('any')
+  // const [selectedPriority, setSelectedPriority] = useState('any')
 
+  const [selectedFilters, setSelectedFilters] = useState({
+    status: 'any',
+    priority: 'any'
+  })
+
+  const filteredTasks = myTasks.filter(task => {
+    if (selectedStatus === 'any' && selectedPriority === 'any') {
+      return true
+    } else if (selectedStatus === 'any') {
+      return task.priority === selectedPriority
+    } else if (selectedPriority === 'any') {
+      return task.status === selectedStatus
+    } else {
+      return task.status === selectedStatus && task.priority === selectedPriority
+    }
+  })
+
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedStatus(event.target.value)
+  }
   return (
     <>
       <TaskFilter />
       {/* <TaskList tasks={ myTasks } onStatusChange={onStatusChange} onDelete={onDelete}> */}
-      <TaskList>
+      <TaskList
+        tasks={ }
+        onStatusChange={handleChange}
+        onDelete={ }
+      >
         {/* <TaskItem /> */}
         {/* <TaskItem /> */}
         {/* <TaskItem /> */}
