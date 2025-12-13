@@ -1,13 +1,25 @@
-import type { TaskListProps } from '../../types'
-import { TaskFilter } from '../TaskFilter/TaskFilter'
+import type { Task, TaskListProps } from '../../types'
+import { TaskItem } from '../TaskItem/TaskItem'
 
 export const TaskList = (props: TaskListProps) => {
 
-    const listFilteredTasks = props.tasks.map((task) => <li>{filteredTasks(task)}</li>)
+    const listTasks = props.tasks.map((task: Task ) => {
+        <TaskItem
+            id={task.id}
+            title={task.title}
+            description={task.description}
+            status={task.status}
+            priority={task.priority}
+            dueDate={task.dueDate}
+        >
+        </TaskItem>
+    })
+
+
 
     return (
         <>
-            <ul>{listFilteredTasks}</ul>
+            <ul>{listTasks}</ul>
         </>
     )
 }

@@ -4,7 +4,9 @@ import type { TaskItemProps } from "../../types"
 export const TaskItem = (props: TaskItemProps) => {
 
     const deleteItem = (event: Event) => {
-        event.target = <></>
+        // Delete the list item
+        myTasks[event.target.id] = <></>
+        
     }
 
     return (
