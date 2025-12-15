@@ -3,12 +3,12 @@
 # Lab 7.3, Lists, Keys, and Conditionals
 
 ## Description
-In this lab, 
+In this lab, an attempt is made to build a simple task manager using React/TypeScript.
 
 
 
 ## Running the program
-To view use this lab, 
+You cannot view this lab
 
 ## Reflection Questions
 > How did you ensure unique keys for your list items?
@@ -19,7 +19,7 @@ C
 
 > What considerations did you make when implementing the filtering functionality?
 
-T
+Where do the state variables go? TaskFilter.tsx, App.tsx?
 <br>
 
 > How did you handle state updates for task status changes?

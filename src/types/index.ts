@@ -22,6 +22,7 @@ export interface TaskItemProps {
   task: Task;
   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
   onDelete: (taskId: string) => void;
+  toBeDeleted: boolean // Likely the wrong direction
 }
 
 /////////

@@ -3,10 +3,6 @@ import type { Task, Filters, TaskFilterProps } from "../../types"
 
 export const TaskFilter = (props: TaskFilterProps) => {
 
-    const onFilterChange = () => {
-
-    }
-
     const [myTasks, setMyTasks] = useState<Task[] | null>(null)
 
     const [selectedFilters, setSelectedFilters] = useState<Filters | null>({
@@ -27,11 +23,15 @@ export const TaskFilter = (props: TaskFilterProps) => {
     })
 
     const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedStatus(event.target.value)
+        setSelectedFilters({
+            // set selectedFilters.status to event.target.value
+        })
     }
 
     const handlePriorityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedPriority(event.target.value)
+        setSelectedFilters({
+            // set selectedFilters.priority to event.target.value
+        })
     }
 
     return (
